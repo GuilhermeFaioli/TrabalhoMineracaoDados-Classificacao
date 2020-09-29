@@ -49,9 +49,8 @@ New_Data.iloc[:, 54] = labelencoder.fit_transform(New_Data.iloc[:, 54].astype(st
 New_Data.iloc[:, 55] = labelencoder.fit_transform(New_Data.iloc[:, 55].astype(str))
 New_Data.iloc[:, 56] = labelencoder.fit_transform(New_Data.iloc[:, 56].astype(str))
 New_Data.iloc[:, 61] = labelencoder.fit_transform(New_Data.iloc[:, 61].astype(str))
-New_Data.iloc[:, 68] = labelencoder.fit_transform(New_Data.iloc[:, 68].astype(str))
-New_Data.iloc[:, 71] = labelencoder.fit_transform(New_Data.iloc[:, 71].astype(str))
-New_Data = New_Data.drop('Unnamed: 63', 1)
+New_Data.iloc[:, 67] = labelencoder.fit_transform(New_Data.iloc[:, 67].astype(str))
+New_Data.iloc[:, 70] = labelencoder.fit_transform(New_Data.iloc[:, 70].astype(str))
 
 #from sklearn.preprocessing import StandardScaler
 #scaler = StandardScaler()
@@ -64,3 +63,4 @@ scaled_values = scaler.fit_transform(New_Data)
 New_Data.loc[:,:] = scaled_values
 
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
+
