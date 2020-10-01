@@ -22,15 +22,14 @@ New_Data = base
 
 #simpleImputer = simpleImputer.fit(New_Data)
 #New_Data = simpleImputer.transform(New_Data)
+classe = base.iloc[:, 63].values
+New_Data = New_Data.drop('CLASSI_FIN', 1)
 
-#New_Data = New_Data.dropna(axis = 1)
-
-#from sklearn.preprocessing import StandardScaler
-#scaler = StandardScaler()
-#New_Data = scaler.fit_transform(New_Data)
 
 from sklearn.preprocessing import LabelEncoder
 labelencoder = LabelEncoder()
+
+
 New_Data.iloc[:, 1] = labelencoder.fit_transform(New_Data.iloc[:, 1])
 New_Data.iloc[:, 3] = labelencoder.fit_transform(New_Data.iloc[:, 3])
 New_Data.iloc[:, 4] = labelencoder.fit_transform(New_Data.iloc[:, 4])
@@ -49,12 +48,14 @@ New_Data.iloc[:, 54] = labelencoder.fit_transform(New_Data.iloc[:, 54].astype(st
 New_Data.iloc[:, 55] = labelencoder.fit_transform(New_Data.iloc[:, 55].astype(str))
 New_Data.iloc[:, 56] = labelencoder.fit_transform(New_Data.iloc[:, 56].astype(str))
 New_Data.iloc[:, 61] = labelencoder.fit_transform(New_Data.iloc[:, 61].astype(str))
-New_Data.iloc[:, 67] = labelencoder.fit_transform(New_Data.iloc[:, 67].astype(str))
-New_Data.iloc[:, 70] = labelencoder.fit_transform(New_Data.iloc[:, 70].astype(str))
+New_Data.iloc[:, 66] = labelencoder.fit_transform(New_Data.iloc[:, 67].astype(str))
+New_Data.iloc[:, 69] = labelencoder.fit_transform(New_Data.iloc[:, 70].astype(str))
+
 
 #from sklearn.preprocessing import StandardScaler
 #scaler = StandardScaler()
 #New_Data = scaler.fit_transform(New_Data)
+
 
 from sklearn.preprocessing import MinMaxScaler
 
@@ -62,5 +63,5 @@ scaler = MinMaxScaler()
 scaled_values = scaler.fit_transform(New_Data) 
 New_Data.loc[:,:] = scaled_values
 
+New_Data['CLASSI_FIN'] = classe 
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
-
