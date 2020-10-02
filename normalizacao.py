@@ -26,8 +26,13 @@ from sklearn.impute import SimpleImputer
 
 New_Data = base
 
+<<<<<<< HEAD
 # #simpleImputer = simpleImputer.fit(New_Data)
 # #New_Data = simpleImputer.transform(New_Data)
+=======
+#simpleImputer = simpleImputer.fit(New_Data)
+#New_Data = simpleImputer.transform(New_Data)
+>>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
 classe = base.iloc[:, 63].values
 New_Data = New_Data.drop('CLASSI_FIN', 1)
 
@@ -57,10 +62,14 @@ New_Data.iloc[:, 61] = labelencoder.fit_transform(New_Data.iloc[:, 61].astype(st
 New_Data.iloc[:, 66] = labelencoder.fit_transform(New_Data.iloc[:, 67].astype(str))
 New_Data.iloc[:, 69] = labelencoder.fit_transform(New_Data.iloc[:, 70].astype(str))
 
+<<<<<<< HEAD
 
 # #from sklearn.preprocessing import StandardScaler
 # #scaler = StandardScaler()
 # #New_Data = scaler.fit_transform(New_Data)
+=======
+>>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
+
 
 
 from sklearn.preprocessing import MinMaxScaler
@@ -70,6 +79,7 @@ scaled_values = scaler.fit_transform(New_Data)
 New_Data.loc[:,:] = scaled_values
 
 New_Data['CLASSI_FIN'] = classe 
+<<<<<<< HEAD
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
 
 # o arquivo abaixo executa 
@@ -123,3 +133,6 @@ print('Matriz de confusão', cm)
 
 
 # retirar espaços em branco para executar o algoritmo na base de dados original
+=======
+New_Data.to_csv('BaseDeDadosNormalizada.csv')
+>>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
