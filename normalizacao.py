@@ -78,7 +78,8 @@ scaler = MinMaxScaler()
 scaled_values = scaler.fit_transform(New_Data) 
 New_Data.loc[:,:] = scaled_values
 
-New_Data['CLASSI_FIN'] = classe 
+New_Data['CLASSI_FIN'] = classe
+New_Data = New_Data.fillna(-1)
 <<<<<<< HEAD
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
 
