@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 """
 Created on Sat Sep 26 18:29:15 2020
 @author: guilh
@@ -26,13 +26,6 @@ from sklearn.impute import SimpleImputer
 
 New_Data = base
 
-<<<<<<< HEAD
-# #simpleImputer = simpleImputer.fit(New_Data)
-# #New_Data = simpleImputer.transform(New_Data)
-=======
-#simpleImputer = simpleImputer.fit(New_Data)
-#New_Data = simpleImputer.transform(New_Data)
->>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
 classe = base.iloc[:, 63].values
 New_Data = New_Data.drop('CLASSI_FIN', 1)
 
@@ -62,13 +55,6 @@ New_Data.iloc[:, 61] = labelencoder.fit_transform(New_Data.iloc[:, 61].astype(st
 New_Data.iloc[:, 66] = labelencoder.fit_transform(New_Data.iloc[:, 67].astype(str))
 New_Data.iloc[:, 69] = labelencoder.fit_transform(New_Data.iloc[:, 70].astype(str))
 
-<<<<<<< HEAD
-
-# #from sklearn.preprocessing import StandardScaler
-# #scaler = StandardScaler()
-# #New_Data = scaler.fit_transform(New_Data)
-=======
->>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
 
 
 
@@ -80,18 +66,18 @@ New_Data.loc[:,:] = scaled_values
 
 New_Data['CLASSI_FIN'] = classe
 New_Data = New_Data.fillna(-1)
-<<<<<<< HEAD
+
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
 
 # o arquivo abaixo executa 
 
-teste = pd.read_csv('normalizado2col.csv')
+teste = pd.read_csv('BaseDeDadosNormalizada.csv')
 
 # Definindo as colunas 2 e 3 como atributos descritivos
-X = teste.iloc[:, [0,1,2]].values
+X = teste.iloc[:, [21,22,23,24,25,26,27,28,29,30,31,32,33]].values
 
 # Definindo a coluna 4 como atributo Classe (Preditivo)
-y = teste.iloc[:, 3].values
+y = teste.iloc[:, 79].values
 
 # Separando o conjunto de dados em conjunto de treinamento e de teste
 
@@ -134,6 +120,5 @@ print('Matriz de confusão', cm)
 
 
 # retirar espaços em branco para executar o algoritmo na base de dados original
-=======
+
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
->>>>>>> e1a996a8406fffb372b702fe88dba888646fbb13
