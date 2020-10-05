@@ -7,6 +7,7 @@ Created on Sat Sep 26 18:29:15 2020
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
 # Importando algumas funções para este código
 from sklearn.model_selection import train_test_split
@@ -16,13 +17,9 @@ from matplotlib.colors import ListedColormap
 from sklearn.metrics import confusion_matrix
 
 base = pd.read_csv('BaseDeDados.csv')
-# #print(base.head())
-# #pd.set_option('display.max_columns', None)
-# #print(base.describe())
-# #print(base.loc[pd.isnull(base['FEBRE'])])
-# #classe = linha 64 CLASSI_FIN
+
 from sklearn.impute import SimpleImputer
-# #simpleImputer =  SimpleImputer(missing_values=np.nan, strategy='most_frequent')
+
 
 New_Data = base
 
@@ -84,29 +81,9 @@ y = teste.iloc[:, 79].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
 
 
-# da erro no replace
 
-
-# for each in range(len(y_test)):
-#         y_test[each] = y_test[each].replace('\n', '')
-
-# for each in range(len(y_train)):
-#         y_train[each] = y_train[each].replace('\n', '')
-
-
-# Normalizando os dados
-# sc = StandardScaler()
-# X_train = sc.fit_transform(X_train)
-# X_test = sc.transform(X_test)
-
-
-# print('treinamento x', X_train)
-# print('treinamento y', y_train)
-# print('teste x', X_train)
-# print('teste y', y_train)
 
 # Gerando o Classificador com os dados de treinamento
-
 classifier = KNeighborsClassifier(n_neighbors = 3)
 classifier.fit(X_train, y_train)
 
@@ -119,6 +96,9 @@ cm = confusion_matrix(y_test, y_pred)
 print('Matriz de confusão', cm)
 
 
-# retirar espaços em branco para executar o algoritmo na base de dados original
-
 New_Data.to_csv('BaseDeDadosNormalizada.csv')
+
+
+
+sns.heatmap(cm, center=True)
+plt.show()
