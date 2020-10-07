@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 """
 Created on Sat Sep 26 18:29:15 2020
 @author: Fabiana Barreto Pereira, Guilherme Ferreira Faioli Lima, Junior Reis dos Santos, Rafaela Silva Miranda e Yasmine de Melo Leite
